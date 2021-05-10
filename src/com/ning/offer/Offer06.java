@@ -1,5 +1,8 @@
 package com.ning.offer;
 
+import java.util.Arrays;
+import java.util.Stack;
+
 /**
  * 输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。
  * 示例 1：
@@ -14,9 +17,9 @@ package com.ning.offer;
  */
 public class Offer06 {
     public static void main(String[] args) {
-        ListNode node1 = new ListNode(1);
-        ListNode node2 = new ListNode(2);
-        ListNode node3 = new ListNode(3);
+        ListNode node1 = new ListNode(11);
+        ListNode node2 = new ListNode(12);
+        ListNode node3 = new ListNode(13);
         node1.next = node2;
         node2.next = node3;
         for (int i : link2Array(node1)) {
@@ -25,31 +28,20 @@ public class Offer06 {
     }
 
     public static int[] link2Array(ListNode head) {
-//        ListNode node = reverse(listNode);
-        StringBuilder sb = new StringBuilder();
+        Stack<ListNode> stack = new Stack<>();
         ListNode temp = head;
         while (temp != null) {
-            sb.append(temp.val);
+            stack.push(temp);
             temp = temp.next;
         }
-        return sb.reverse().chars().map(c -> c = c - 48).toArray();
+        int size = stack.size();
+        int[] print = new int[size];
+        for (int i = 0; i < size; i++) {
+            print[i] = stack.pop().val;
+        }
+        return print;
     }
 
-    public static ListNode reverse(ListNode node) {
-        if (node == null || node.next == null) {
-            return node;
-        }
-        ListNode pre = null;
-        ListNode cur = node;
-        ListNode nex;
-        while (cur != null) {
-            nex = cur.next;
-            cur.next = pre;
-            pre = cur;
-            cur = nex;
-        }
-        return pre;
-    }
 }
 
 class ListNode {
