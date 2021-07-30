@@ -1,7 +1,5 @@
 package com.ning.offer;
 
-import java.net.URLEncoder;
-
 /**
  * 请实现一个函数，把字符串 s 中的每个空格替换成"%20"。
  * 示例 1：
@@ -35,4 +33,7 @@ public class Offer05 {
         }
         return new String(result, 0, size);
     }
+    /*
+    storage
+     */
 }
