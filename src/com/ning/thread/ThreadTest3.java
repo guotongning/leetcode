@@ -48,7 +48,7 @@ public class ThreadTest3 {
         @Override
         public void run() {
             try {
-                for (int i = 0; i < 1000; i++) {
+                for (int i = 0; i < Integer.MAX_VALUE; i++) {
                     SA.acquire();
                     producer(this.getName(), pps);
                     SB.release();
@@ -72,7 +72,7 @@ public class ThreadTest3 {
         @Override
         public void run() {
             try {
-                for (int i = 0; i < 1000; i++) {
+                for (int i = 0; i < Integer.MAX_VALUE; i++) {
                     SB.acquire();
                     producer(this.getName(), pps);
                     SC.release();
@@ -94,7 +94,7 @@ public class ThreadTest3 {
         @Override
         public void run() {
             try {
-                for (int i = 0; i < 1000; i++) {
+                for (int i = 0; i < Integer.MAX_VALUE; i++) {
                     SC.acquire();
                     producer(this.getName(), pps);
                     SA.release();
@@ -135,7 +135,7 @@ public class ThreadTest3 {
         @Override
         public void run() {
             try {
-                for (int i = 0; i < 1000; i++) {
+                for (int i = 0; i < Integer.MAX_VALUE; i++) {
                     TimeUnit.MILLISECONDS.sleep(1000 / cps);
                     consume();
                 }
