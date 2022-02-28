@@ -1,11 +1,87 @@
 package com.ning.test;
 
-public class Main {
-    private static final String LUA = "13:4,14:1,37:4,15:1,43:1,41:4,62:1,44:4,61:1,22:4,32:4,21:1,42:1,23:1,51:4,36:1,34:1,11:4,45:1,64:4,33:4,35:4,50:1,53:4,12:1,52:4,31:1,63:1,46:1,65:1,54:1";
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 
+public class Main {
     public static void main(String[] args) {
-        String str = "111%s1234";
-        System.out.println(str);
-        System.out.println(String.format(str,""));
+        Person.createProxy(new Student()).hello("kawasaki");
+        Person.createProxy(new Teacher(), new PersonProcessorImpl()).hello("nicholas");
+    }
+}
+
+
+interface Person {
+    void hello(String name);
+
+    static Person createProxy(Person p) {
+        return (Person) Proxy.newProxyInstance(p.getClass().getClassLoader(), p.getClass().getInterfaces(), new InvocationHandlerImpl(p));
+    }
+
+    static Person createProxy(Person p, Processor processor) {
+        return (Person) Proxy.newProxyInstance(p.getClass().getClassLoader(), p.getClass().getInterfaces(), new InvocationHandlerImpl(p, processor));
+    }
+}
+
+class Teacher implements Person {
+    @Override
+    public void hello(String name) {
+        System.out.printf("我是老师,hello %s%n", name);
+    }
+}
+
+class Student implements Person {
+
+    @Override
+    public void hello(String name) {
+        System.out.printf("我是学生,hello %s%n", name);
+    }
+}
+
+class InvocationHandlerImpl implements InvocationHandler {
+
+    private final Object target;
+    private final Processor processor;
+
+    public InvocationHandlerImpl(Object target) {
+        this.target = target;
+        processor = new Processor() {
+        };
+    }
+
+    public InvocationHandlerImpl(Object target, Processor processor) {
+        this.target = target;
+        this.processor = processor;
+    }
+
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        processor.preProcessor();
+        Object returnValue = method.invoke(target, args);
+        processor.afterProcessor();
+        return returnValue;
+    }
+}
+
+interface Processor {
+    default void preProcessor() {
+        System.out.println("我是默认前置处理");
+    }
+
+    default void afterProcessor() {
+        System.out.println("我是默认后置处理");
+    }
+}
+
+class PersonProcessorImpl implements Processor {
+    @Override
+    public void preProcessor() {
+        System.out.println("我是自定义前置处理");
+    }
+
+    @Override
+    public void afterProcessor() {
+        System.out.println("我是自定义后置处理");
     }
 }

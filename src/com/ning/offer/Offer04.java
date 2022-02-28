@@ -28,7 +28,7 @@ public class Offer04 {
                 {10, 13, 14, 17, 24},
                 {18, 21, 23, 26, 30}
         };
-        System.out.println(findNumberIn2DArray(nums, 21));
+        System.out.println(findNumberIn2DArray(nums, 22));
     }
 
     public static boolean findNumberIn2DArray(int[][] matrix, int target) {

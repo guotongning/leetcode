@@ -20,7 +20,15 @@ public class Merge {
         int[] res = new int[nums1.length + nums2.length];
         int i = 0, j = 0, k = 0;
         while (k < res.length) {
-            res[k++] = i >= nums1.length ? nums2[j++] : j >= nums2.length ? nums1[i++] : nums1[i] < nums2[j] ? nums1[i++] : nums2[j++];
+            if (i >= nums1.length) {
+                res[k++] = nums2[j++];
+            } else if (j >= nums2.length) {
+                res[k++] = nums1[i++];
+            } else if (nums1[i] < nums2[j]) {
+                res[k++] = nums1[i++];
+            } else {
+                res[k++] = nums2[j++];
+            }
         }
         return res;
     }

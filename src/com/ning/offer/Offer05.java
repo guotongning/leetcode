@@ -14,10 +14,10 @@ package com.ning.offer;
  */
 public class Offer05 {
     public static void main(String[] args) {
-        System.out.println(replaceBlank("1 2 3 4"));
+        System.out.println(replaceBlank3("1 2 3 4"));
     }
 
-    public static String replaceBlank(String s) {
+    public static String replaceBlank1(String s) {
         int length = s.length();
         char[] result = new char[length * 3];
         int size = 0;
@@ -33,7 +33,20 @@ public class Offer05 {
         }
         return new String(result, 0, size);
     }
-    /*
-    storage
-     */
+
+    public static String replaceBlank2(String s) {
+        String[] strings = s.split(" ");
+        StringBuilder str = new StringBuilder();
+        for (int i = 0; i < strings.length; i++) {
+            str.append(strings[i]);
+            if (i != strings.length - 1) {
+                str.append("%20");
+            }
+        }
+        return str.toString();
+    }
+
+    public static String replaceBlank3(String s) {
+        return s.replaceAll(" ", "%20");
+    }
 }

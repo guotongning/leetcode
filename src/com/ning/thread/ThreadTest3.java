@@ -1,8 +1,8 @@
 package com.ning.thread;
 
 import java.util.Deque;
+import java.util.LinkedList;
 import java.util.NoSuchElementException;
-import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class ThreadTest3 {
 
-    private static final Deque<String> QUEUE = new ConcurrentLinkedDeque<>();
+    private static final Deque<String> QUEUE = new LinkedList<>();
 
     //恢复消费阈值
     private static final int RESTORE_CONSUME_THRESHOLD = 20;
@@ -57,8 +57,6 @@ public class ThreadTest3 {
                 e.printStackTrace();
             }
         }
-
-
     }
 
     static class PB extends Thread {
@@ -106,7 +104,7 @@ public class ThreadTest3 {
     }
 
     private static void producer(String name, long pps) throws Exception {
-        TimeUnit.MILLISECONDS.sleep(1000 / pps / 3);
+        TimeUnit.MILLISECONDS.sleep(1000 / pps);
         boolean offerSuccess = QUEUE.offerFirst(name);
         int size = QUEUE.size();
         System.out.println("生产成功：" + name + ",队列长度：" + size);
