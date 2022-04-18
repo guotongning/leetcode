@@ -1,4 +1,4 @@
-package com.ning.offer;
+package com.ning.expression;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,12 +16,6 @@ public class Expression {
 
     public Expression(String expression) {
         this.expression = expression;
-    }
-
-    public static void main(String[] args) {
-        String expression = "((3 - 0.3) - (  12 + 5) / (3.7 - 2) * (1.3 / 0.5) + 4) * 2";
-        double result = new Expression(expression).resolve();
-        System.out.printf("%s = %s%n", expression, result);
     }
 
     public double resolve() {
@@ -216,58 +210,4 @@ public class Expression {
         return expression.replaceAll(" ", "");
     }
 
-}
-
-enum Operator {
-    ADD('+'), SUB('-'), MUL('*'), DIV('/'), NUMBER('#'), SPOT('.'), BRACKETS_L('('), BRACKETS_R(')'), EXPRESSION('$');
-
-    private final Character symbol;
-
-    Operator(Character symbol) {
-        this.symbol = symbol;
-    }
-
-    public Character getSymbol() {
-        return symbol;
-    }
-
-    public static Operator char2Operator(char c) {
-        switch (c) {
-            case '+':
-                return ADD;
-            case '-':
-                return SUB;
-            case '*':
-                return MUL;
-            case '/':
-                return DIV;
-            case '.':
-                return SPOT;
-            case '(':
-                return BRACKETS_L;
-            case ')':
-                return BRACKETS_R;
-            default:
-                return NUMBER;
-        }
-    }
-}
-
-class Source {
-    public String value;
-    public Operator sourceType;
-    public Operator connector;
-    public Source next;
-
-    public Source(String value, Operator sourceType, Operator connector, Source next) {
-        this.value = value;
-        this.sourceType = sourceType;
-        this.connector = connector;
-        this.next = next;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("类型=[%s] 值=[%s] 计算符=[%s]", sourceType.name(), value, connector != null ? connector.name() : "null");
-    }
 }
