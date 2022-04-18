@@ -1,7 +1,17 @@
 package com.ning.expression;
 
 enum Operator {
-    ADD('+'), SUB('-'), MUL('*'), DIV('/'), NUMBER('#'), SPOT('.'), BRACKETS_L('('), BRACKETS_R(')'), EXPRESSION('$');
+    ADD('+'),
+    SUB('-'),
+    MUL('*'),
+    DIV('/'),
+    NUMBER('#'),
+    SPOT('.'),
+    BRACKETS_L('('),
+    BRACKETS_R(')'),
+    EXPRESSION('$'),
+    ILLEGAL(null),
+    ;
 
     private final Character symbol;
 
@@ -30,7 +40,10 @@ enum Operator {
             case ')':
                 return BRACKETS_R;
             default:
-                return NUMBER;
+                if (c >= 48 && c <= 57) {
+                    return NUMBER;
+                }
+                return ILLEGAL;
         }
     }
 }

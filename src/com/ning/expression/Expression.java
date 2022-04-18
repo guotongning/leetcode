@@ -185,6 +185,10 @@ public class Expression {
         char[] chars = expression.toCharArray();
         Operator preOperator = null;
         for (char c : chars) {
+            Operator operator = Operator.char2Operator(c);
+            if (Operator.ILLEGAL.equals(operator)) {
+                throw new IllegalArgumentException(String.format("表达式含有非法符号！表达式 = %s; 非法符号：[%s] 下标：[%s]", expression, c, expression.indexOf(c)));
+            }
             if (Operator.BRACKETS_L.getSymbol() == c) {
                 stack.push(c);
             } else if (Operator.BRACKETS_R.getSymbol() == c) {
@@ -193,7 +197,6 @@ public class Expression {
                 }
                 stack.pop();
             }
-            Operator operator = Operator.char2Operator(c);
             if (operator.equals(preOperator)
                     && !Operator.BRACKETS_L.equals(operator)
                     && !Operator.BRACKETS_R.equals(operator)

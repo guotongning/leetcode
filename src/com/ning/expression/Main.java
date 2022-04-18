@@ -8,7 +8,7 @@ package com.ning.expression;
  */
 public class Main {
     public static void main(String[] args) {
-        String expression = "((3 - 0.3) - (  12 + 5) / (3.7 - 2) * (1.3 / 0.5) + 4) * 2";
+        String expression = "(1.1 + 2) * 3！ - (2 + (3 - 1.5) * 2) / 2";
         double result = new Expression(expression).resolve();
         System.out.printf("%s = %s%n", expression, result);
     }
