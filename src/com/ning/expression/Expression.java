@@ -1,5 +1,6 @@
 package com.ning.expression;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -12,20 +13,24 @@ import java.util.Stack;
  */
 public class Expression {
 
+
     private String expression;
+    private final DecimalFormat bd;
 
     public Expression(String expression) {
         this.expression = expression;
+        this.bd = new DecimalFormat("############.000");
     }
 
-    public double resolve() {
+    public String resolve() {
         //去除空格
         expression = removeSpace(expression);
         //判断表达式正确性
         if (illegalExpression(expression)) {
             throw new RuntimeException(String.format("非法的表达式！ %s", expression));
         }
-        return handleLinkedSource(sourcesToLinkedSource(expression2SourceList(expression)));
+        double result = handleLinkedSource(sourcesToLinkedSource(expression2SourceList(expression)));
+        return bd.format(result);
     }
 
 
