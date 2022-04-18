@@ -64,8 +64,17 @@ public class Expression {
         if (head == null) {
             return 0.0;
         }
-        Source newHead = handleLinkedSourceMulAndDiv(head);
-        return handleLinkedSourceSubAndAdd(newHead);
+        Source source = head;
+        while (source != null) {
+            if (Operator.EXPRESSION.equals(source.sourceType)) {
+                Source expressionHead = sourcesToLinkedSource(expression2SourceList(source.value));
+                double result = handleLinkedSource(expressionHead);
+                source.value = result + "";
+                source.sourceType = Operator.NUMBER;
+            }
+            source = source.next;
+        }
+        return handleLinkedSourceSubAndAdd(handleLinkedSourceMulAndDiv(head));
     }
 
     private double handleLinkedSourceSubAndAdd(Source newHead) {
@@ -90,23 +99,13 @@ public class Expression {
     private Source handleLinkedSourceMulAndDiv(Source head) {
         Source source = head;
         while (source != null) {
-            if (Operator.EXPRESSION.equals(source.sourceType)) {
-                Source expressionHead = sourcesToLinkedSource(expression2SourceList(source.value));
-                double result = handleLinkedSource(expressionHead);
-                source.value = result + "";
-                source.sourceType = Operator.NUMBER;
-            }
-            source = source.next;
-        }
-        source = head;
-        while (source != null) {
-            Source next = source.next;
-            if (next == null) {
-                break;
-            }
             if (Operator.ADD.equals(source.connector) || Operator.SUB.equals(source.connector)) {
                 source = source.next;
                 continue;
+            }
+            Source next = source.next;
+            if (next == null) {
+                break;
             }
             double param1 = Double.parseDouble(source.value);
             double param2 = Double.parseDouble(next.value);
