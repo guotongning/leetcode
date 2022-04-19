@@ -16,9 +16,10 @@ public class ThreadDemo {
     private static final Semaphore C = new Semaphore(0);
 
     public static void main(String[] args) {
-        new A().start();
-        new B().start();
-        new C().start();
+//        new A().start();
+//        new B().start();
+//        new C().start();
+        System.out.println("44121646".hashCode()%1000);
     }
 
     static class A extends Thread {

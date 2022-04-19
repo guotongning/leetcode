@@ -12,11 +12,14 @@ public class Merge {
 
     public static void main(String[] args) {
         for (int i : merge(nums1, nums2)) {
-            System.out.println(i);
+            System.out.print(i + "->");
         }
     }
 
     public static int[] merge(int[] nums1, int[] nums2) {
+        if (nums1.length == 0 || nums2.length == 0) {
+            return nums1.length == 0 ? nums2 : nums1;
+        }
         int[] res = new int[nums1.length + nums2.length];
         int i = 0, j = 0, k = 0;
         while (k < res.length) {

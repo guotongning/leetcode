@@ -119,7 +119,6 @@ public class Expression {
             source.connector = next.connector;
             source.sourceType = Operator.NUMBER;
             source.next = next.next;
-            source = source.next;
         }
         return head;
     }
