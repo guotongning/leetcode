@@ -16,10 +16,29 @@ public class Expression {
 
     private String expression;
     private final DecimalFormat bd;
+    private Operator nextExpressionOperator;
 
     public Expression(String expression) {
         this.expression = expression;
         this.bd = new DecimalFormat("############.000");
+    }
+
+    public Expression(String expression, String pattern, Operator operator) {
+        this.expression = expression;
+        this.bd = new DecimalFormat(pattern);
+        this.nextExpressionOperator = operator;
+    }
+
+    public String getExpression() {
+        return expression;
+    }
+
+    public void setExpression(String expression) {
+        this.expression = expression;
+    }
+
+    public Operator getNextExpressionOperator() {
+        return nextExpressionOperator;
     }
 
     public String resolve() {
@@ -93,10 +112,10 @@ public class Expression {
             if (next.next == null) {
                 return result;
             }
+            source = source.next;
             source.value = result + "";
             source.connector = next.connector;
             source.next = next.next;
-            source = source.next;
         }
         return 0;
     }
