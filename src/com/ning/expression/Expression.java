@@ -20,7 +20,7 @@ public class Expression {
 
     public Expression(String expression) {
         this.expression = expression;
-        this.bd = new DecimalFormat("############.000");
+        this.bd = new DecimalFormat("############.0000000000");
     }
 
     public Expression(String expression, String pattern, Operator operator) {

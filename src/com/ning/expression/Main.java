@@ -10,9 +10,9 @@ public class Main {
     public static void main(String[] args) {
 //        expression();
         String resolve = Expressions.builder()
-                .exp("1 + 1")
+                .exp("(1 + 1) * 2 / 3")
                 .then("*3")
-                .then("*2")
+                .then("*1.13")
                 .resolve();
         System.out.println(resolve);
     }
