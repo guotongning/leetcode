@@ -42,13 +42,13 @@ public class BasePlayer implements Player {
     }
 
     @Override
-    public void pause(BrandTable brandTable) {
-        brandTable.pause(this);
+    public void pause(PokerTable pokerTable) {
+        pokerTable.pause(this);
     }
 
     @Override
-    public void cancelPause(BrandTable brandTable) {
-        brandTable.cancelPause(this);
+    public void cancelPause(PokerTable pokerTable) {
+        pokerTable.cancelPause(this);
     }
 
     @Override

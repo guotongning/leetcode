@@ -13,9 +13,9 @@ public interface Player {
 
     void cancelReady();
 
-    void pause(BrandTable brandTable);
+    void pause(PokerTable pokerTable);
 
-    void cancelPause(BrandTable brandTable);
+    void cancelPause(PokerTable pokerTable);
 
     void joinGame(String tableID);
 

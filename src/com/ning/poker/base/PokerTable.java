@@ -1,6 +1,6 @@
 package com.ning.poker.base;
 
-public interface BrandTable {
+public interface PokerTable {
 
     String tableId();
 

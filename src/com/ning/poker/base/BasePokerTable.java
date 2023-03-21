@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public abstract class BaseBrandTable implements BrandTable {
+public abstract class BasePokerTable implements PokerTable {
 
     private final String tableID;
     private final Player[] players;
@@ -13,11 +13,11 @@ public abstract class BaseBrandTable implements BrandTable {
     private String lastPausePlayer;
     private final AtomicInteger curPlayerCount = new AtomicInteger(0);
 
-    public BaseBrandTable(PokerPack pokerPack, int numberOfPlayers) {
+    public BasePokerTable(PokerPack pokerPack, int numberOfPlayers) {
         this.players = new Player[numberOfPlayers];
         this.tableID = UUID.randomUUID().toString();
         this.pokerPack = pokerPack;
-        BrandTableManager.register(this);
+        PokerTableManager.register(this);
     }
 
     @Override

@@ -4,7 +4,7 @@ public enum GameState {
     //player
     READY,
     UN_READY,
-    //brand table
+    //poker table
     NOT_READY,
     READY_START,
     IN_PROGRESS,
