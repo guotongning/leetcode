@@ -2,7 +2,7 @@ package com.ning.poker.base;
 
 import com.ning.poker.base.api.Poker;
 import com.ning.poker.base.api.PokerGroup;
-import com.ning.poker.base.exception.NoComparability;
+import com.ning.poker.base.exception.NoComparabilityException;
 
 import java.util.Arrays;
 import java.util.stream.Stream;
@@ -17,7 +17,7 @@ public abstract class BasePokerGroup implements PokerGroup {
         score = Stream.of(pokers).map(Poker::score).reduce(Integer::sum).orElse(-1);
     }
 
-    public abstract int compareTo(PokerGroup other) throws NoComparability;
+    public abstract int compareTo(PokerGroup other) throws NoComparabilityException;
 
     @Override
     public int score() {

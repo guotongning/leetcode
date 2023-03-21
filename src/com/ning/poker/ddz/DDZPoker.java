@@ -64,15 +64,4 @@ public class DDZPoker implements Poker {
     public String toString() {
         return face + "_" + decor;
     }
-
-    public static void main(String[] args) {
-        DDZPoker poker1 = new DDZPoker("A", "♠", 1);
-        DDZPoker poker2 = new DDZPoker("A", "♥", 2);
-        DDZPoker poker3 = new DDZPoker("A", "♣", 3);
-        DDZPoker poker4 = new DDZPoker("A", "♦", 4);
-        System.out.println(poker1);
-        System.out.println(poker2);
-        System.out.println(poker3);
-        System.out.println(poker4);
-    }
 }

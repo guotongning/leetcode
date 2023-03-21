@@ -14,7 +14,7 @@ public enum PokerFace {
     J("J", 11),
     Q("Q", 12),
     K("K", 13),
-    JOKER("JOKER", 1000),
+    JOKER("JOKER", 14),
     ;
     private final String face;
     private final int defaultScore;

@@ -3,16 +3,16 @@ package com.ning.poker.ddz.poker_group;
 import com.ning.poker.base.BasePokerGroup;
 import com.ning.poker.base.api.Poker;
 import com.ning.poker.base.api.PokerGroup;
-import com.ning.poker.base.exception.NoComparability;
+import com.ning.poker.base.exception.NoComparabilityException;
 
 public class SinglePokerGroup extends BasePokerGroup {
 
-    public SinglePokerGroup(Poker poker) {
-        super(new Poker[]{poker});
+    public SinglePokerGroup(Poker[] pokers) {
+        super(pokers);
     }
 
     @Override
-    public int compareTo(PokerGroup other) throws NoComparability {
+    public int compareTo(PokerGroup other) throws NoComparabilityException {
         if (other == null) {
             return 1;
         }
@@ -22,6 +22,6 @@ public class SinglePokerGroup extends BasePokerGroup {
         if (other instanceof SinglePokerGroup) {
             return Integer.compare(this.score(), other.score());
         }
-        throw new NoComparability(this, other);
+        throw new NoComparabilityException(this, other);
     }
 }

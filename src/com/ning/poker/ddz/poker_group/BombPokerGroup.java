@@ -3,7 +3,7 @@ package com.ning.poker.ddz.poker_group;
 import com.ning.poker.base.BasePokerGroup;
 import com.ning.poker.base.api.Poker;
 import com.ning.poker.base.api.PokerGroup;
-import com.ning.poker.base.exception.NoComparability;
+import com.ning.poker.base.exception.NoComparabilityException;
 
 public class BombPokerGroup extends BasePokerGroup {
 
@@ -12,10 +12,10 @@ public class BombPokerGroup extends BasePokerGroup {
     }
 
     @Override
-    public int compareTo(PokerGroup other) throws NoComparability {
+    public int compareTo(PokerGroup other) throws NoComparabilityException {
         if (other instanceof BombPokerGroup) {
             return Integer.compare(score(), other.score());
         }
-        throw new NoComparability(this, other);
+        throw new NoComparabilityException(this, other);
     }
 }
