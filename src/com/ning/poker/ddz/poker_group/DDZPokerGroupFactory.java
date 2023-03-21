@@ -72,14 +72,4 @@ public class DDZPokerGroupFactory implements PokerGroupFactory {
         ).apply(pokers);
     }
 
-    public static void main(String[] args) {
-        DDZPokerGroupFactory factory = new DDZPokerGroupFactory();
-        Poker[] pokers = DDZPoker.defaultPokers();
-        PokerGroup group1 = factory.create(new Poker[]{pokers[0], pokers[1]});
-        PokerGroup group2 = factory.create(new Poker[]{pokers[1], pokers[1]});
-        int compare = group1.compareTo(group2);
-        System.out.println(Arrays.toString(group1.show()));
-        System.out.println(Arrays.toString(group2.show()));
-        System.out.println(compare);
-    }
 }
