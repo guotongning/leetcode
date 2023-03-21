@@ -17,7 +17,7 @@ public class SinglePokerGroup extends BasePokerGroup {
         if (other == null) {
             return 1;
         }
-        if (other instanceof BoomPokerGroup) {
+        if (other instanceof BombPokerGroup) {
             return -1;
         }
         if (other instanceof SinglePokerGroup) {

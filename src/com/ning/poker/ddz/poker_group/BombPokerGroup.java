@@ -6,15 +6,15 @@ import com.ning.poker.base.api.PokerGroup;
 
 import java.util.Arrays;
 
-public class BoomPokerGroup extends BasePokerGroup {
+public class BombPokerGroup extends BasePokerGroup {
 
-    public BoomPokerGroup(Poker[] pokers) {
+    public BombPokerGroup(Poker[] pokers) {
         super(pokers);
     }
 
     @Override
     public int compareTo(PokerGroup other) {
-        if (other instanceof BoomPokerGroup) {
+        if (other instanceof BombPokerGroup) {
             return Integer.compare(score(), other.score());
         }
         throw new RuntimeException(String.format("两组牌无可比性！%s %s", Arrays.toString(this.show()), Arrays.toString(other.show())));
