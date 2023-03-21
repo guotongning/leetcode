@@ -1,4 +1,4 @@
-package com.ning.poker.base;
+package com.ning.poker.base.api;
 
 public interface Poker {
     String face();

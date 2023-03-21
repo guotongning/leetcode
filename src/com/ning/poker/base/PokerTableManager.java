@@ -1,5 +1,7 @@
 package com.ning.poker.base;
 
+import com.ning.poker.base.api.PokerTable;
+
 import java.util.concurrent.ConcurrentHashMap;
 
 public class PokerTableManager {

@@ -1,6 +1,11 @@
 package com.ning.poker.ddz;
 
-import com.ning.poker.base.Poker;
+import com.ning.poker.base.api.Poker;
+import com.ning.poker.base.enums.PokerDecor;
+import com.ning.poker.base.enums.PokerFace;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DDZPoker implements Poker {
 
@@ -12,6 +17,23 @@ public class DDZPoker implements Poker {
         this.face = face;
         this.decor = decor;
         this.weight = weight;
+    }
+
+    public static Poker[] defaultPokers() {
+        List<Poker> pokers = new ArrayList<>();
+        int pokerWeight = 1;
+        for (PokerDecor pokerDecor : PokerDecor.values()) {
+            if (PokerDecor.BIG == pokerDecor || PokerDecor.SMALL == pokerDecor)
+                continue;
+            for (PokerFace pokerFace : PokerFace.values()) {
+                if (PokerFace.JOKER == pokerFace)
+                    continue;
+                pokers.add(new DDZPoker(pokerFace.getFace(), pokerDecor.getDecor(), pokerWeight++));
+            }
+        }
+        pokers.add(new DDZPoker(PokerFace.JOKER.getFace(), PokerDecor.BIG.getDecor(), pokerWeight++));
+        pokers.add(new DDZPoker(PokerFace.JOKER.getFace(), PokerDecor.SMALL.getDecor(), pokerWeight));
+        return pokers.toArray(new Poker[0]);
     }
 
     @Override

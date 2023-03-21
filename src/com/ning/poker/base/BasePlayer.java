@@ -1,5 +1,10 @@
 package com.ning.poker.base;
 
+import com.ning.poker.base.api.Player;
+import com.ning.poker.base.api.PokerTable;
+import com.ning.poker.base.enums.GameState;
+import com.ning.poker.base.enums.PlayerState;
+
 public class BasePlayer implements Player {
 
     private final String name;

@@ -1,4 +1,6 @@
-package com.ning.poker.base;
+package com.ning.poker.base.api;
+
+import com.ning.poker.base.enums.GameState;
 
 public interface PokerTable {
 

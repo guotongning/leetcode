@@ -1,4 +1,6 @@
-package com.ning.poker.base;
+package com.ning.poker.base.enums;
+
+import com.ning.poker.base.api.Player;
 
 public enum GameState {
     //player

@@ -1,13 +1,19 @@
 package com.ning.poker.base;
 
+import com.ning.poker.base.api.Poker;
+import com.ning.poker.base.api.PokerPack;
+
 import java.util.Arrays;
 import java.util.Random;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class BasePokerPack implements PokerPack {
     private final Poker[] pokers;
+    private final AtomicInteger surplus;
 
     public BasePokerPack(Poker[] pokers) {
         this.pokers = pokers;
+        surplus = new AtomicInteger(pokers.length - 1);
     }
 
     @Override
@@ -29,6 +35,14 @@ public class BasePokerPack implements PokerPack {
             pokers[i] = pokers[j];
             pokers[j] = temp;
         }
+    }
+
+    @Override
+    public Poker deal() {
+        if (surplus.get() < 0) {
+            return null;
+        }
+        return pokers[surplus.getAndDecrement()];
     }
 
 }

@@ -1,4 +1,7 @@
-package com.ning.poker.base;
+package com.ning.poker.base.api;
+
+import com.ning.poker.base.enums.GameState;
+import com.ning.poker.base.enums.PlayerState;
 
 public interface Player {
     String name();

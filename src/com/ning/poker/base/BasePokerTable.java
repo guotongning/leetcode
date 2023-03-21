@@ -1,5 +1,10 @@
 package com.ning.poker.base;
 
+import com.ning.poker.base.api.Player;
+import com.ning.poker.base.api.PokerPack;
+import com.ning.poker.base.api.PokerTable;
+import com.ning.poker.base.enums.GameState;
+
 import java.util.Arrays;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;

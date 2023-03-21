@@ -1,4 +1,4 @@
-package com.ning.poker.base;
+package com.ning.poker.base.api;
 
 public interface PokerPack {
     Poker[] showAll();
@@ -6,4 +6,6 @@ public interface PokerPack {
     void sort();
 
     void disorganize();
+
+    Poker deal();
 }

@@ -1,4 +1,4 @@
-package com.ning.poker.base;
+package com.ning.poker.base.enums;
 
 public enum PlayerState {
     IN_GAME,
