@@ -3,8 +3,7 @@ package com.ning.poker.ddz.poker_group;
 import com.ning.poker.base.BasePokerGroup;
 import com.ning.poker.base.api.Poker;
 import com.ning.poker.base.api.PokerGroup;
-
-import java.util.Arrays;
+import com.ning.poker.base.exception.NoComparability;
 
 public class SinglePokerGroup extends BasePokerGroup {
 
@@ -13,7 +12,7 @@ public class SinglePokerGroup extends BasePokerGroup {
     }
 
     @Override
-    public int compareTo(PokerGroup other) {
+    public int compareTo(PokerGroup other) throws NoComparability {
         if (other == null) {
             return 1;
         }
@@ -23,6 +22,6 @@ public class SinglePokerGroup extends BasePokerGroup {
         if (other instanceof SinglePokerGroup) {
             return Integer.compare(this.score(), other.score());
         }
-        throw new RuntimeException(String.format("两组牌无可比性！%s %s", Arrays.toString(this.show()), Arrays.toString(other.show())));
+        throw new NoComparability(this, other);
     }
 }
