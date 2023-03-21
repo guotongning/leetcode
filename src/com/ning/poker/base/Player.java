@@ -3,6 +3,8 @@ package com.ning.poker.base;
 public interface Player {
     String name();
 
+    String tableID();
+
     PlayerState state();
 
     GameState gameState();
@@ -11,11 +13,11 @@ public interface Player {
 
     void cancelReady();
 
-    void pause();
+    void pause(BrandTable brandTable);
 
-    void cancelPause();
+    void cancelPause(BrandTable brandTable);
 
-    void joinGame();
+    void joinGame(String tableID);
 
-    void exitGame();
+    void exitGame(String tableID);
 }

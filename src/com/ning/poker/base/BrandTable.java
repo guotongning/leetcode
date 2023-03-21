@@ -10,7 +10,9 @@ public interface BrandTable {
 
     void start();
 
-    void pause();
+    void pause(Player player);
+
+    void cancelPause(Player player);
 
     void settlement();
 
@@ -18,6 +20,6 @@ public interface BrandTable {
 
     GameState state();
 
-    void join(Player player);
+    void register(Player player);
 
 }

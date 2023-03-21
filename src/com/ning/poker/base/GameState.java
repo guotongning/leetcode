@@ -48,4 +48,14 @@ public enum GameState {
         }
         return NOT_READY;
     }
+
+    public static GameState destroy(GameState gameState, Player[] players, String tableId) {
+        for (Player player : players) {
+            player.exitGame(tableId);
+        }
+        if (GameState.IN_PROGRESS == gameState) {
+            return OVER;
+        }
+        return gameState;
+    }
 }
