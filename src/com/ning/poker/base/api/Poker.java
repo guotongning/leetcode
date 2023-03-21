@@ -5,7 +5,7 @@ public interface Poker {
 
     String decor();
 
-    int weight();
+    int score();
 
     int compareTo(Poker poker);
 }
