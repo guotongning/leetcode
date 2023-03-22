@@ -1,4 +1,4 @@
-package com.ning.poker.ddz.poker_judge;
+package com.ning.poker.ddz.poker_group.poker_judge;
 
 import com.ning.poker.base.api.Poker;
 import com.ning.poker.base.api.PokerGroupAdjudicator;

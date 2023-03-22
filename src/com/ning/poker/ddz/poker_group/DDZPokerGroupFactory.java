@@ -5,7 +5,7 @@ import com.ning.poker.base.api.PokerGroup;
 import com.ning.poker.base.api.PokerGroupAdjudicator;
 import com.ning.poker.base.api.PokerGroupFactory;
 import com.ning.poker.base.exception.NoSuchPokerGroupException;
-import com.ning.poker.ddz.poker_judge.*;
+import com.ning.poker.ddz.poker_group.poker_judge.*;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
