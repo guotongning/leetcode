@@ -19,9 +19,9 @@ public class SinglePokerGroup extends BasePokerGroup {
         if (other instanceof BombPokerGroup) {
             return -1;
         }
-        if (other instanceof SinglePokerGroup) {
-            return Integer.compare(this.score(), other.score());
+        if (!(other instanceof SinglePokerGroup)) {
+            throw new NoComparabilityException(this, other);
         }
-        throw new NoComparabilityException(this, other);
+        return Integer.compare(this.score(), other.score());
     }
 }

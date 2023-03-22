@@ -2,10 +2,11 @@ package com.ning.poker.ddz;
 
 import com.ning.poker.base.api.Poker;
 import com.ning.poker.base.enums.PokerDecor;
-import com.ning.poker.base.enums.PokerFace;
+import com.ning.poker.ddz.enums.DDZPokerScore;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class DDZPoker implements Poker {
 
@@ -21,22 +22,15 @@ public class DDZPoker implements Poker {
 
     public static Poker[] defaultPokers() {
         List<Poker> pokers = new ArrayList<>();
-        for (PokerDecor pokerDecor : PokerDecor.values()) {
-            if (PokerDecor.BIG == pokerDecor || PokerDecor.SMALL == pokerDecor)
+        for (DDZPokerScore ddzPokerScore : DDZPokerScore.values()) {
+            if (DDZPokerScore.DZZ_BIG_JOKER.equals(ddzPokerScore) || DDZPokerScore.DZZ_SMALL_JOKER.equals(ddzPokerScore)) {
+                pokers.add(new DDZPoker(ddzPokerScore.getPokerFace().getFace(), null, ddzPokerScore.getScore()));
                 continue;
-            for (PokerFace pokerFace : PokerFace.values()) {
-                if (PokerFace.JOKER == pokerFace)
-                    continue;
-                int score = pokerFace.getDefaultScore();
-                if (PokerFace.TWO == pokerFace)
-                    score = 15;
-                if (PokerFace.A == pokerFace)
-                    score = 14;
-                pokers.add(new DDZPoker(pokerFace.getFace(), pokerDecor.getDecor(), score));
+            }
+            for (PokerDecor decor : PokerDecor.values()) {
+                pokers.add(new DDZPoker(ddzPokerScore.getPokerFace().getFace(), decor.getDecor(), ddzPokerScore.getScore()));
             }
         }
-        pokers.add(new DDZPoker(PokerFace.JOKER.getFace(), PokerDecor.BIG.getDecor(), 17));
-        pokers.add(new DDZPoker(PokerFace.JOKER.getFace(), PokerDecor.SMALL.getDecor(), 16));
         return pokers.toArray(new Poker[0]);
     }
 
@@ -62,6 +56,6 @@ public class DDZPoker implements Poker {
 
     @Override
     public String toString() {
-        return face + "_" + decor;
+        return face + "_" + Optional.ofNullable(decor).orElse("");
     }
 }

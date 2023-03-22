@@ -5,8 +5,6 @@ public enum PokerDecor {
     RED_HEART("♥"),
     PLUM_BLOSSOM("♣"),
     BLOCK("♦"),
-    BIG("BIG"),
-    SMALL("SMALL"),
     ;
 
     private final String decor;

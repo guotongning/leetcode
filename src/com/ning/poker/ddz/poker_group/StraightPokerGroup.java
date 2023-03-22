@@ -5,9 +5,9 @@ import com.ning.poker.base.api.Poker;
 import com.ning.poker.base.api.PokerGroup;
 import com.ning.poker.base.exception.NoComparabilityException;
 
-public class PairsPokerGroup extends BasePokerGroup {
+public class StraightPokerGroup extends BasePokerGroup {
 
-    public PairsPokerGroup(Poker[] pokers) {
+    public StraightPokerGroup(Poker[] pokers) {
         super(pokers);
     }
 
@@ -19,10 +19,13 @@ public class PairsPokerGroup extends BasePokerGroup {
         if (other instanceof BombPokerGroup) {
             return -1;
         }
-        if (!(other instanceof PairsPokerGroup)) {
+        if (!(other instanceof StraightPokerGroup)) {
             throw new NoComparabilityException(this, other);
         }
-        return Integer.compare(this.score(), other.score());
+        if (this.show().length != other.show().length) {
+            throw new NoComparabilityException(this, other);
+        }
+        return Integer.compare(score(), other.score());
     }
 
     @Override
