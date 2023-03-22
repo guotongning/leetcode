@@ -8,4 +8,5 @@ public interface PokerPack {
     void disorganize();
 
     Poker deal();
+    Poker[] deal(int pokerNum);
 }

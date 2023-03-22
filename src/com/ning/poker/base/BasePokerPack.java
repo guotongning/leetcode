@@ -45,4 +45,17 @@ public class BasePokerPack implements PokerPack {
         return pokers[surplus.getAndDecrement()];
     }
 
+    @Override
+    public Poker[] deal(int pokerNum) {
+        //TODO 一副牌只能发一遍的问题需要处理一下，最好能发完一遍之后。自动洗牌重置。
+        if (pokerNum <= 0) {
+            return new Poker[0];
+        }
+        Poker[] pokers = new Poker[pokerNum];
+        for (int i = 0; i < pokerNum; i++) {
+            pokers[i] = deal();
+        }
+        return pokers;
+    }
+
 }
