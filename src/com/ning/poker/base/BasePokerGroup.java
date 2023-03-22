@@ -20,7 +20,7 @@ public abstract class BasePokerGroup implements PokerGroup {
         desc(pokers);
         this.pokers = pokers;
         sort(this.pokers);
-        score = Stream.of(pokers).map(Poker::score).reduce(Integer::sum).orElse(-1);
+        score = initScore();
     }
 
     public abstract int compareTo(PokerGroup other) throws NoComparabilityException;
@@ -40,6 +40,11 @@ public abstract class BasePokerGroup implements PokerGroup {
     @Override
     public int score() {
         return score;
+    }
+
+    @Override
+    public int initScore() {
+        return Stream.of(pokers).map(Poker::score).reduce(Integer::sum).orElse(-1);
     }
 
     @Override

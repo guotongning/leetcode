@@ -16,14 +16,14 @@ public class BombPokerGroup extends BasePokerGroup {
         if (other == null) {
             return 1;
         }
-        if (!(other instanceof BombPokerGroup)) {
-            throw new NoComparabilityException(this, other);
+        if (other instanceof BombPokerGroup) {
+            return Integer.compare(score(), other.score());
         }
-        return Integer.compare(score(), other.score());
+        return -1;
     }
 
     @Override
-    public int score() {
+    public int initScore() {
         return show()[0].score();
     }
 }

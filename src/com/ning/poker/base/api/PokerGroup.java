@@ -4,5 +4,6 @@ public interface PokerGroup extends PokerComparator {
 
     int score();
 
+    int initScore();
     Poker[] show();
 }
