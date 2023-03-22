@@ -11,7 +11,7 @@ public class PairsPokerAdjudicator implements PokerGroupAdjudicator {
         if (pokers == null || pokers.length != 2) {
             return false;
         }
-        if (PokerFace.BIG_JOKER.getFace().equals(pokers[0].face()) || PokerFace.SMALL_JOKER.getFace().equals(pokers[1].face())) {
+        if (PokerFace.BJ.getFace().equals(pokers[0].face()) || PokerFace.SJ.getFace().equals(pokers[1].face())) {
             return false;
         }
         return pokers[0].face().equals(pokers[1].face());

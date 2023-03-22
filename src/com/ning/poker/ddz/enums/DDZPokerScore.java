@@ -5,8 +5,8 @@ import com.ning.poker.base.enums.PokerFace;
 import static com.ning.poker.base.enums.PokerFace.*;
 
 public enum DDZPokerScore {
-    DZZ_BIG_JOKER(BIG_JOKER, 15),
-    DZZ_SMALL_JOKER(SMALL_JOKER, 14),
+    DZZ_BIG_JOKER(BJ, 15),
+    DZZ_SMALL_JOKER(SJ, 14),
     DDZ_TWO(TWO, 13),
     DDZ_A(A, 12),
     DDZ_K(K, 11),

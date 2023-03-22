@@ -16,10 +16,10 @@ public class StraightPokerAdjudicator implements PokerGroupAdjudicator {
         Arrays.sort(pokers, Comparator.comparing(Poker::score).reversed());
         int score = pokers[0].score();
         for (Poker poker : pokers) {
-            if (PokerFace.BIG_JOKER.getFace().equals(poker.face()) ||
-                    PokerFace.SMALL_JOKER.getFace().equals(poker.face()) ||
+            if (PokerFace.BJ.getFace().equals(poker.face()) ||
+                    PokerFace.SJ.getFace().equals(poker.face()) ||
                     PokerFace.A.getFace().equals(poker.face()) ||
-                    PokerFace.TEN.getFace().equals(poker.face())
+                    PokerFace.TWO.getFace().equals(poker.face())
             ) {
                 return false;
             }

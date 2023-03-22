@@ -14,8 +14,8 @@ public enum PokerFace {
     J("J"),
     Q("Q"),
     K("K"),
-    BIG_JOKER("BIG_JOKER"),
-    SMALL_JOKER("SMALL_JOKER"),
+    BJ("BJ"),
+    SJ("SJ"),
     ;
     private final String face;
 
