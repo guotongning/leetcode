@@ -37,4 +37,13 @@ public enum DDZPokerScore {
     public int getScore() {
         return score;
     }
+
+    public static DDZPokerScore fromPokerFace(PokerFace pokerFace) {
+        for (DDZPokerScore ddzPokerScore : values()) {
+            if (ddzPokerScore.pokerFace == pokerFace) {
+                return ddzPokerScore;
+            }
+        }
+        return null;
+    }
 }

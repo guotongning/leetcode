@@ -27,4 +27,12 @@ public enum PokerFace {
         return face;
     }
 
+    public static PokerFace fromFace(String face) {
+        for (PokerFace pokerFace : values()) {
+            if (pokerFace.face.equals(face)) {
+                return pokerFace;
+            }
+        }
+        return null;
+    }
 }

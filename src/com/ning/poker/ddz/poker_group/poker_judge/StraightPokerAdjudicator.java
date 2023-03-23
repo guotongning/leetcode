@@ -18,7 +18,6 @@ public class StraightPokerAdjudicator implements PokerGroupAdjudicator {
         for (Poker poker : pokers) {
             if (PokerFace.BJ.getFace().equals(poker.face()) ||
                     PokerFace.SJ.getFace().equals(poker.face()) ||
-                    PokerFace.A.getFace().equals(poker.face()) ||
                     PokerFace.TWO.getFace().equals(poker.face())
             ) {
                 return false;
