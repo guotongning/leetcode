@@ -19,7 +19,7 @@ public class BombPokerGroup extends BasePokerGroup {
         if (other instanceof BombPokerGroup) {
             return Integer.compare(score(), other.score());
         }
-        return -1;
+        return 1;
     }
 
     @Override

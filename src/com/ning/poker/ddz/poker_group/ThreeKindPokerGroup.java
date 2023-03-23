@@ -19,7 +19,7 @@ public class ThreeKindPokerGroup extends BasePokerGroup {
         if (other instanceof BombPokerGroup) {
             return -1;
         }
-        if (!(other instanceof ThreeKindPokerGroup)) {
+        if (!(other instanceof ThreeKindPokerGroup) || show().length != other.show().length) {
             throw new NoComparabilityException(this, other);
         }
         return Integer.compare(this.score(), other.score());
