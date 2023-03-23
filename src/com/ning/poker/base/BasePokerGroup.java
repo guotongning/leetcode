@@ -2,7 +2,6 @@ package com.ning.poker.base;
 
 import com.ning.poker.base.api.Poker;
 import com.ning.poker.base.api.PokerGroup;
-import com.ning.poker.base.exception.NoComparabilityException;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -23,7 +22,7 @@ public abstract class BasePokerGroup implements PokerGroup {
         score = initScore();
     }
 
-    public abstract int compareTo(PokerGroup other) throws NoComparabilityException;
+    public abstract int compareTo(PokerGroup other);
 
     public void sort(Poker[] pokers) {
 

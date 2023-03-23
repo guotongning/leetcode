@@ -11,6 +11,7 @@ public class BombPokerGroup extends BasePokerGroup {
         super(pokers);
     }
 
+
     @Override
     public int compareTo(PokerGroup other) throws NoComparabilityException {
         if (other == null) {

@@ -19,10 +19,7 @@ public class StraightPokerGroup extends BasePokerGroup {
         if (other instanceof BombPokerGroup) {
             return -1;
         }
-        if (!(other instanceof StraightPokerGroup)) {
-            throw new NoComparabilityException(this, other);
-        }
-        if (this.show().length != other.show().length) {
+        if (!(other instanceof StraightPokerGroup) || this.show().length != other.show().length) {
             throw new NoComparabilityException(this, other);
         }
         return Integer.compare(score(), other.score());
