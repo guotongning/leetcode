@@ -59,33 +59,4 @@ public class DDZPokerGroupFactory implements PokerGroupFactory {
         return create(pokers);
     }
 
-    public static void main(String[] args) {
-        PokerGroup group1 = DDZPokerGroupFactory.getInstance().create("BJ", "SJ");
-        PokerGroup group2 = DDZPokerGroupFactory.getInstance().create("2", "2", "2", "2");
-        System.out.println(group1.compareTo(group2));
-        System.out.println(group2.compareTo(group1));
-
-        PokerGroup group3 = DDZPokerGroupFactory.getInstance().create("3", "4", "5", "6", "7");
-        PokerGroup group4 = DDZPokerGroupFactory.getInstance().create("4", "5", "6", "7", "8");
-        System.out.println(group3.compareTo(group4));
-        System.out.println(group4.compareTo(group2));
-        System.out.println(group1.compareTo(group4));
-
-        PokerGroup group5 = DDZPokerGroupFactory.getInstance().create("A", "K", "Q", "J", "10");
-        System.out.println(group1.compareTo(group5));
-        System.out.println(group5.compareTo(group4));
-
-        PokerGroup group6 = DDZPokerGroupFactory.getInstance().create("A", "A", "A", "10", "10");
-        PokerGroup group7 = DDZPokerGroupFactory.getInstance().create("K", "K", "K", "5", "5");
-        System.out.println(group7.compareTo(group6));
-
-        PokerGroup group8 = DDZPokerGroupFactory.getInstance().create("A", "A", "A", "10");
-        PokerGroup group9 = DDZPokerGroupFactory.getInstance().create("K", "K", "K", "5");
-        System.out.println(group8.compareTo(group9));
-
-        PokerGroup group10 = DDZPokerGroupFactory.getInstance().create("K", "K", "K", "K", "5", "5");
-        PokerGroup group11 = DDZPokerGroupFactory.getInstance().create("A", "A", "A", "A", "6", "8");
-        System.out.println(group10.compareTo(group11));
-    }
-
 }
