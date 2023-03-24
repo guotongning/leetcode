@@ -1,4 +1,4 @@
-package com.ning.poker.ddz.poker_group;
+package com.ning.poker.ddz;
 
 import com.ning.poker.base.api.Poker;
 import com.ning.poker.base.api.PokerGroup;
@@ -7,8 +7,8 @@ import com.ning.poker.base.api.PokerGroupFactory;
 import com.ning.poker.base.enums.PokerDecor;
 import com.ning.poker.base.enums.PokerFace;
 import com.ning.poker.base.exception.NoSuchPokerGroupException;
-import com.ning.poker.ddz.DDZPoker;
 import com.ning.poker.ddz.enums.DDZPokerScore;
+import com.ning.poker.ddz.poker_group.*;
 import com.ning.poker.ddz.poker_group.poker_judge.*;
 import javafx.util.Pair;
 

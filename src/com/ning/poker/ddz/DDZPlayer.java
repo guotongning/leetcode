@@ -3,7 +3,6 @@ package com.ning.poker.ddz;
 import com.ning.poker.base.BasePlayer;
 import com.ning.poker.base.api.Poker;
 import com.ning.poker.base.api.PokerGroup;
-import com.ning.poker.ddz.poker_group.DDZPokerGroupFactory;
 
 public class DDZPlayer extends BasePlayer {
 

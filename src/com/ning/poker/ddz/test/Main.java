@@ -1,7 +1,7 @@
 package com.ning.poker.ddz.test;
 
 import com.ning.poker.base.api.PokerGroup;
-import com.ning.poker.ddz.poker_group.DDZPokerGroupFactory;
+import com.ning.poker.ddz.DDZPokerGroupFactory;
 
 import java.util.Arrays;
 
