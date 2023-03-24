@@ -6,21 +6,21 @@ import com.ning.poker.base.api.PokerGroup;
 import com.ning.poker.base.exception.NoComparabilityException;
 import com.ning.poker.ddz.util.PokerUtils;
 
-public class ThreeKindPokerGroup extends BasePokerGroup {
+public class FourKindPokerGroup extends BasePokerGroup {
 
-    public ThreeKindPokerGroup(Poker[] pokers) {
+    public FourKindPokerGroup(Poker[] pokers) {
         super(pokers);
     }
 
     @Override
-    public int compareTo(PokerGroup other) throws NoComparabilityException {
+    public int compareTo(PokerGroup other) {
         if (other == null) {
             return 1;
         }
         if (other instanceof BombPokerGroup) {
             return -1;
         }
-        if (!(other instanceof ThreeKindPokerGroup) || show().length != other.show().length) {
+        if (!(other instanceof FourKindPokerGroup)) {
             throw new NoComparabilityException(this, other);
         }
         return Integer.compare(this.score(), other.score());
@@ -34,12 +34,9 @@ public class ThreeKindPokerGroup extends BasePokerGroup {
     @Override
     public void sort(Poker[] pokers) {
         super.sort(pokers);
-        if (pokers.length == 4 && !pokers[0].face().equals(pokers[1].face())) {
-            PokerUtils.exchange(pokers, 0, 3);
-        }
-        if (pokers.length == 5 && !pokers[0].face().equals(pokers[2].face())) {
-            PokerUtils.exchange(pokers, 0, 3);
-            PokerUtils.exchange(pokers, 1, 4);
+        if (!pokers[0].face().equals(pokers[2].face())) {
+            PokerUtils.exchange(pokers, 0, 5);
+            PokerUtils.exchange(pokers, 1, 6);
         }
     }
 }

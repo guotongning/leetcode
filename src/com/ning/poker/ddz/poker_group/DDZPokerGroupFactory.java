@@ -29,6 +29,7 @@ public class DDZPokerGroupFactory implements PokerGroupFactory {
         JUDGES.add(new Pair<>(new BombPokerAdjudicator(), BombPokerGroup::new));
         JUDGES.add(new Pair<>(new StraightPokerAdjudicator(), StraightPokerGroup::new));
         JUDGES.add(new Pair<>(new ThreeKindAdjudicator(), ThreeKindPokerGroup::new));
+        JUDGES.add(new Pair<>(new FourKindPokerAdjudicator(), FourKindPokerGroup::new));
     }
 
     public static DDZPokerGroupFactory getInstance() {
@@ -81,7 +82,10 @@ public class DDZPokerGroupFactory implements PokerGroupFactory {
         PokerGroup group8 = DDZPokerGroupFactory.getInstance().create("A", "A", "A", "10");
         PokerGroup group9 = DDZPokerGroupFactory.getInstance().create("K", "K", "K", "5");
         System.out.println(group8.compareTo(group9));
-        System.out.println(group7.compareTo(group8));
+
+        PokerGroup group10 = DDZPokerGroupFactory.getInstance().create("K", "K", "K", "K", "5", "5");
+        PokerGroup group11 = DDZPokerGroupFactory.getInstance().create("A", "A", "A", "A", "6", "8");
+        System.out.println(group10.compareTo(group11));
     }
 
 }
