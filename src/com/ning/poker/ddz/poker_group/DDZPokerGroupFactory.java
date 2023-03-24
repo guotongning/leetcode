@@ -26,10 +26,11 @@ public class DDZPokerGroupFactory implements PokerGroupFactory {
     static {
         JUDGES.add(new Pair<>(new SinglePokerAdjudicator(), SinglePokerGroup::new));
         JUDGES.add(new Pair<>(new PairsPokerAdjudicator(), PairsPokerGroup::new));
-        JUDGES.add(new Pair<>(new BombPokerAdjudicator(), BombPokerGroup::new));
-        JUDGES.add(new Pair<>(new StraightPokerAdjudicator(), StraightPokerGroup::new));
         JUDGES.add(new Pair<>(new ThreeKindAdjudicator(), ThreeKindPokerGroup::new));
+        JUDGES.add(new Pair<>(new BombPokerAdjudicator(), BombPokerGroup::new));
         JUDGES.add(new Pair<>(new FourKindPokerAdjudicator(), FourKindPokerGroup::new));
+        JUDGES.add(new Pair<>(new StraightPokerAdjudicator(), StraightPokerGroup::new));
+        JUDGES.add(new Pair<>(new DoubleStraightPokerAdjudicator(), DoubleStraightPokerGroup::new));
     }
 
     public static DDZPokerGroupFactory getInstance() {

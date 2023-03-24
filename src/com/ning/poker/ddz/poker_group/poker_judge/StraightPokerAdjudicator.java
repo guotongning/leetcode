@@ -16,10 +16,7 @@ public class StraightPokerAdjudicator implements PokerGroupAdjudicator {
         Arrays.sort(pokers, Comparator.comparing(Poker::score).reversed());
         int score = pokers[0].score();
         for (Poker poker : pokers) {
-            if (PokerFace.BJ.getFace().equals(poker.face()) ||
-                    PokerFace.SJ.getFace().equals(poker.face()) ||
-                    PokerFace.TWO.getFace().equals(poker.face())
-            ) {
+            if (isIllegalPoker(poker)) {
                 return false;
             }
             if (poker.score() != score--) {
@@ -27,5 +24,11 @@ public class StraightPokerAdjudicator implements PokerGroupAdjudicator {
             }
         }
         return true;
+    }
+
+    protected boolean isIllegalPoker(Poker poker) {
+        return PokerFace.BJ.getFace().equals(poker.face()) ||
+                PokerFace.SJ.getFace().equals(poker.face()) ||
+                PokerFace.TWO.getFace().equals(poker.face());
     }
 }
