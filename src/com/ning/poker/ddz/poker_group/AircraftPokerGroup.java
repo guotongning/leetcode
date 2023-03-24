@@ -4,7 +4,6 @@ import com.ning.poker.base.BasePokerGroup;
 import com.ning.poker.base.api.Poker;
 import com.ning.poker.base.api.PokerGroup;
 import com.ning.poker.base.exception.NoComparabilityException;
-import com.ning.poker.ddz.util.PokerUtils;
 
 public class AircraftPokerGroup extends BasePokerGroup {
 
@@ -34,7 +33,6 @@ public class AircraftPokerGroup extends BasePokerGroup {
     @Override
     public void sort(Poker[] pokers) {
         super.sort(pokers);
-        //找到几张单牌的index。然后交换到尾部。
 
     }
 }

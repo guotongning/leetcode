@@ -7,11 +7,11 @@ public class ThreeKindAdjudicator implements PokerGroupAdjudicator {
 
     @Override
     public boolean judge(Poker[] pokers) {
-        if (pokers == null || pokers.length < 3) {
+        if (pokers == null || pokers.length < 3 || pokers.length > 5) {
             return false;
         }
         int sameCount = 0;
-        Poker start = pokers[0];
+        Poker start = pokers[0].face().equals(pokers[1].face()) ? pokers[0] : pokers[pokers.length - 1];
         for (Poker poker : pokers) {
             if (poker.face().equals(start.face())) {
                 sameCount++;

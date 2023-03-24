@@ -27,7 +27,7 @@ public class Main {
         compare(group7, group6);
 
         PokerGroup group8 = DDZPokerGroupFactory.getInstance().create("A", "A", "A", "10");
-        PokerGroup group9 = DDZPokerGroupFactory.getInstance().create("K", "K", "K", "5");
+        PokerGroup group9 = DDZPokerGroupFactory.getInstance().create("A", "K", "K", "K");
         compare(group1, group9);
         compare(group8, group9);
 
@@ -39,6 +39,10 @@ public class Main {
         PokerGroup group12 = DDZPokerGroupFactory.getInstance().create("A", "A", "K", "K", "Q", "Q");
         PokerGroup group13 = DDZPokerGroupFactory.getInstance().create("5", "5", "4", "4", "3", "3");
         compare(group12, group13);
+
+        PokerGroup group14 = DDZPokerGroupFactory.getInstance().create("2", "7", "8", "6", "6", "6", "5", "5", "5", "4", "4", "4");
+        PokerGroup group15 = DDZPokerGroupFactory.getInstance().create("K", "K", "K", "Q", "Q", "Q", "j", "j", "j", "2", "7", "8");
+        compare(group14, group15);
     }
 
     private static void compare(PokerGroup group1, PokerGroup group2) {
