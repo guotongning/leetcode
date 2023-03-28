@@ -4,6 +4,7 @@ import com.ning.poker.base.BasePokerGroup;
 import com.ning.poker.base.api.Poker;
 import com.ning.poker.base.api.PokerGroup;
 import com.ning.poker.base.exception.NoComparabilityException;
+import com.ning.poker.base.utils.*;
 
 public class AircraftPokerGroup extends BasePokerGroup {
 
@@ -33,6 +34,29 @@ public class AircraftPokerGroup extends BasePokerGroup {
     @Override
     public void sort(Poker[] pokers) {
         super.sort(pokers);
-
+        int x = 0, y = 1, z = 2, preDiffLength = 0, threeKindLength;
+        if (pokers[x].face().equals(pokers[y].face()) && !pokers[x].face().equals(pokers[z].face())) {
+            threeKindLength = pokers.length / 5 * 3;
+        } else if (!pokers[x].face().equals(pokers[y].face())) {
+            threeKindLength = pokers.length / 4 * 3;
+        } else {
+            return;
+        }
+        while (z < pokers.length) {
+            Poker pokerI = pokers[x++];
+            Poker pokerJ = pokers[y++];
+            Poker pokerK = pokers[z++];
+            if (pokerI.face().equals(pokerJ.face()) && pokerI.face().equals(pokerK.face())) {
+                preDiffLength = x - 1;
+                break;
+            }
+        }
+        Poker[] copy = PokerUtils.copy(pokers);
+        System.arraycopy(copy, preDiffLength, pokers, 0, threeKindLength);
+        System.arraycopy(copy, 0, pokers, threeKindLength, preDiffLength);
+        for (int i = 0; i < copy.length - preDiffLength - threeKindLength; i++) {
+            pokers[threeKindLength + preDiffLength + i] = copy[threeKindLength + preDiffLength + i];
+        }
+        System.out.println();
     }
 }

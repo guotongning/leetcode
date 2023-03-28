@@ -31,6 +31,7 @@ public class DDZPokerGroupFactory implements PokerGroupFactory {
         JUDGES.add(new Pair<>(new FourKindPokerAdjudicator(), FourKindPokerGroup::new));
         JUDGES.add(new Pair<>(new StraightPokerAdjudicator(), StraightPokerGroup::new));
         JUDGES.add(new Pair<>(new DoubleStraightPokerAdjudicator(), DoubleStraightPokerGroup::new));
+        JUDGES.add(new Pair<>(new AircraftPokerAdjudicator(), AircraftPokerGroup::new));
     }
 
     public static DDZPokerGroupFactory getInstance() {

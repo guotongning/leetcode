@@ -1,6 +1,7 @@
 package com.ning.poker.base;
 
 import com.ning.poker.base.api.Poker;
+import com.ning.poker.base.utils.*;
 import com.ning.poker.base.api.PokerGroup;
 
 import java.util.Arrays;
@@ -16,24 +17,15 @@ public abstract class BasePokerGroup implements PokerGroup {
         if (pokers == null) {
             throw new IllegalArgumentException("非法的牌");
         }
-        desc(pokers);
+        sort(pokers);
         this.pokers = pokers;
-        sort(this.pokers);
         score = initScore();
     }
 
     public abstract int compareTo(PokerGroup other);
 
     public void sort(Poker[] pokers) {
-
-    }
-
-    public void asc(Poker[] pokers) {
-        Arrays.sort(pokers, Poker::compareTo);
-    }
-
-    public void desc(Poker[] pokers) {
-        Arrays.sort(pokers, Comparator.comparing(Poker::score).reversed());
+        PokerUtils.sort(pokers, true);
     }
 
     @Override

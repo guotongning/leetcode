@@ -40,9 +40,13 @@ public class Main {
         PokerGroup group13 = DDZPokerGroupFactory.getInstance().create("5", "5", "4", "4", "3", "3");
         compare(group12, group13);
 
-        PokerGroup group14 = DDZPokerGroupFactory.getInstance().create("2", "7", "8", "6", "6", "6", "5", "5", "5", "4", "4", "4");
-        PokerGroup group15 = DDZPokerGroupFactory.getInstance().create("K", "K", "K", "Q", "Q", "Q", "j", "j", "j", "2", "7", "8");
+        PokerGroup group14 = DDZPokerGroupFactory.getInstance().create("3", "7", "3", "7", "8", "8", "6", "6", "6", "5", "5", "5", "4", "4", "4");
+        PokerGroup group15 = DDZPokerGroupFactory.getInstance().create("K", "K", "7", "7", "5", "5", "5", "3", "3", "3", "4", "4", "4", "8", "8");
         compare(group14, group15);
+
+        PokerGroup group16 = DDZPokerGroupFactory.getInstance().create("7", "3", "8", "6", "6", "6", "5", "5", "5", "4", "4", "4");
+        PokerGroup group17 = DDZPokerGroupFactory.getInstance().create("K", "7", "5", "5", "5", "3", "3", "3", "4", "4", "4", "8");
+        compare(group16, group17);
     }
 
     private static void compare(PokerGroup group1, PokerGroup group2) {

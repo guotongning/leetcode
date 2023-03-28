@@ -29,7 +29,7 @@ public enum PokerFace {
 
     public static PokerFace fromFace(String face) {
         for (PokerFace pokerFace : values()) {
-            if (pokerFace.face.equals(face)) {
+            if (pokerFace.face.equalsIgnoreCase(face)) {
                 return pokerFace;
             }
         }
