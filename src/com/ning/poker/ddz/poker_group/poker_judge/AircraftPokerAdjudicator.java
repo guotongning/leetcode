@@ -2,11 +2,9 @@ package com.ning.poker.ddz.poker_group.poker_judge;
 
 import com.ning.poker.base.api.Poker;
 import com.ning.poker.base.api.PokerGroupAdjudicator;
-import com.ning.poker.base.utils.*;
+import com.ning.poker.base.utils.PokerUtils;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 public class AircraftPokerAdjudicator implements PokerGroupAdjudicator {
 

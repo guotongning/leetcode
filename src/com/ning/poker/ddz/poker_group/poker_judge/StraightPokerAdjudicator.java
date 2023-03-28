@@ -3,9 +3,7 @@ package com.ning.poker.ddz.poker_group.poker_judge;
 import com.ning.poker.base.api.Poker;
 import com.ning.poker.base.api.PokerGroupAdjudicator;
 import com.ning.poker.base.enums.PokerFace;
-
-import java.util.Arrays;
-import java.util.Comparator;
+import com.ning.poker.base.utils.PokerUtils;
 
 public class StraightPokerAdjudicator implements PokerGroupAdjudicator {
     @Override
@@ -13,7 +11,7 @@ public class StraightPokerAdjudicator implements PokerGroupAdjudicator {
         if (pokers == null || pokers.length < 5) {
             return false;
         }
-        Arrays.sort(pokers, Comparator.comparing(Poker::score).reversed());
+        PokerUtils.sort(pokers,true);
         int score = pokers[0].score();
         for (Poker poker : pokers) {
             if (isIllegalPoker(poker)) {

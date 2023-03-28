@@ -6,6 +6,4 @@ public interface Poker {
     String decor();
 
     int score();
-
-    int compareTo(Poker poker);
 }

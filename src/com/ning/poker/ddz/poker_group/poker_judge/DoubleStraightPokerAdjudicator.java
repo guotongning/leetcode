@@ -1,6 +1,7 @@
 package com.ning.poker.ddz.poker_group.poker_judge;
 
 import com.ning.poker.base.api.Poker;
+import com.ning.poker.base.utils.PokerUtils;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -12,7 +13,7 @@ public class DoubleStraightPokerAdjudicator extends StraightPokerAdjudicator {
         if (pokers == null || pokers.length < 6) {
             return false;
         }
-        Arrays.sort(pokers, Comparator.comparing(Poker::score).reversed());
+        PokerUtils.sort(pokers,true);
         int score1 = pokers[0].score();
         int score2 = pokers[1].score();
         for (int i = 0, j = 1; i < pokers.length - 1 && j < pokers.length; i += 2, j += 2) {

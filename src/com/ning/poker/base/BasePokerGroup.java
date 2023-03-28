@@ -1,11 +1,10 @@
 package com.ning.poker.base;
 
 import com.ning.poker.base.api.Poker;
-import com.ning.poker.base.utils.*;
+import com.ning.poker.base.utils.PokerUtils;
 import com.ning.poker.base.api.PokerGroup;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.stream.Stream;
 
 public abstract class BasePokerGroup implements PokerGroup {

@@ -2,6 +2,7 @@ package com.ning.poker.base;
 
 import com.ning.poker.base.api.Poker;
 import com.ning.poker.base.api.PokerPack;
+import com.ning.poker.base.utils.PokerUtils;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -23,7 +24,7 @@ public class BasePokerPack implements PokerPack {
 
     @Override
     public void sort() {
-        Arrays.sort(pokers, Poker::compareTo);
+        PokerUtils.sort(pokers, true);
     }
 
     @Override

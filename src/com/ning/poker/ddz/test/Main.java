@@ -1,5 +1,6 @@
 package com.ning.poker.ddz.test;
 
+import com.ning.poker.base.api.Poker;
 import com.ning.poker.base.api.PokerGroup;
 import com.ning.poker.ddz.DDZPokerGroupFactory;
 

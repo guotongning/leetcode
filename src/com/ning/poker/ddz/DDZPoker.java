@@ -50,11 +50,6 @@ public class DDZPoker implements Poker {
     }
 
     @Override
-    public int compareTo(Poker poker) {
-        return Integer.compare(this.score, poker.score());
-    }
-
-    @Override
     public String toString() {
         return face + "_" + Optional.ofNullable(decor).orElse("");
     }

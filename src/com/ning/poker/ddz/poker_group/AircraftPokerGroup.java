@@ -3,10 +3,10 @@ package com.ning.poker.ddz.poker_group;
 import com.ning.poker.base.BasePokerGroup;
 import com.ning.poker.base.api.Poker;
 import com.ning.poker.base.api.PokerGroup;
+import com.ning.poker.base.utils.PokerUtils;
 import com.ning.poker.base.exception.NoComparabilityException;
-import com.ning.poker.base.utils.*;
 
-public class AircraftPokerGroup extends BasePokerGroup {
+public class AircraftPokerGroup extends BasePokerGroup{
 
     public AircraftPokerGroup(Poker[] pokers) {
         super(pokers);
