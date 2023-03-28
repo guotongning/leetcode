@@ -51,6 +51,6 @@ public class DDZPoker implements Poker {
 
     @Override
     public String toString() {
-        return face + "_" + Optional.ofNullable(decor).orElse("");
+        return Optional.ofNullable(decor).orElse("") + face;
     }
 }
