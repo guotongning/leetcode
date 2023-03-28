@@ -1,6 +1,7 @@
 package com.ning.poker.ddz;
 
 import com.ning.poker.base.BasePokerTable;
+import com.ning.poker.base.api.Player;
 import com.ning.poker.base.api.PokerPack;
 
 public class DZZPokerTable extends BasePokerTable {
@@ -14,6 +15,9 @@ public class DZZPokerTable extends BasePokerTable {
     @Override
     public void licensing() {
         super.licensing();
+        for (Player player : allPlayers()) {
+            player.addHand(deal());
+        }
     }
 
     @Override

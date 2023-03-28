@@ -1,6 +1,7 @@
 package com.ning.poker.base;
 
 import com.ning.poker.base.api.Player;
+import com.ning.poker.base.api.Poker;
 import com.ning.poker.base.api.PokerPack;
 import com.ning.poker.base.api.PokerTable;
 import com.ning.poker.base.enums.GameState;
@@ -37,7 +38,7 @@ public abstract class BasePokerTable implements PokerTable {
 
     @Override
     public void licensing() {
-        System.out.println(pokerPack);
+
     }
 
     @Override
@@ -46,6 +47,7 @@ public abstract class BasePokerTable implements PokerTable {
             return;
         }
         this.gameState = GameState.start(this.gameState, players);
+        //TODO do something
     }
 
     @Override
@@ -57,6 +59,7 @@ public abstract class BasePokerTable implements PokerTable {
         if (GameState.PAUSED == gameState) {
             this.lastPausePlayer = player.name();
         }
+        //TODO do something
     }
 
     @Override
@@ -65,17 +68,19 @@ public abstract class BasePokerTable implements PokerTable {
             this.gameState = GameState.cancelPause(this.gameState);
             this.lastPausePlayer = null;
         }
+        //TODO do something
     }
 
     @Override
     public void settlement() {
-        System.out.println("开始结算");
+        //TODO do something
     }
 
     @Override
     public void destroy() {
         this.gameState = GameState.destroy(this.gameState, players, this.tableID);
         settlement();
+        //TODO do something
     }
 
     @Override
@@ -84,7 +89,7 @@ public abstract class BasePokerTable implements PokerTable {
     }
 
     @Override
-    public void register(Player player) {
+    public void joinPlayer(Player player) {
         if (player == null) {
             return;
         }
@@ -93,6 +98,9 @@ public abstract class BasePokerTable implements PokerTable {
         }
         player.joinGame(this.tableID);
         players[curPlayerCount.getAndIncrement()] = player;
-        //TODO do something
+    }
+
+    public Poker deal() {
+        return pokerPack.deal();
     }
 }

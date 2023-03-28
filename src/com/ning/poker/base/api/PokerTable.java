@@ -22,6 +22,6 @@ public interface PokerTable {
 
     GameState state();
 
-    void register(Player player);
+    void joinPlayer(Player player);
 
 }

@@ -53,4 +53,13 @@ public class DDZPoker implements Poker {
     public String toString() {
         return Optional.ofNullable(decor).orElse("") + face;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        Poker other = (Poker) obj;
+        return this.face.equalsIgnoreCase(other.face()) && this.decor.equals(other.decor());
+    }
 }

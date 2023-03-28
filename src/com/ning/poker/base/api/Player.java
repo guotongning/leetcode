@@ -23,4 +23,10 @@ public interface Player {
     void joinGame(String tableID);
 
     void exitGame(String tableID);
+
+    void addHand(Poker poker);
+
+    void organizeHands(Poker[] hands);
+
+    PokerGroup play(Poker[] selectedPokers);
 }
