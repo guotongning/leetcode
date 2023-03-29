@@ -18,7 +18,7 @@ public class PokerUtils {
     }
 
     public static void sort(Poker[] pokers, boolean reversed) {
-        Comparator<Poker> comparator = Comparator.comparing(Poker::score);
+        Comparator<Poker> comparator = Comparator.comparing(p -> p == null ? -1 : p.score());
         Arrays.sort(pokers, reversed ? comparator.reversed() : comparator);
     }
 }

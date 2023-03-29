@@ -15,7 +15,7 @@ public abstract class BasePokerTable implements PokerTable {
     private final String tableID;
     private final Player[] players;
     private final PokerPack pokerPack;
-    private GameState gameState;
+    private GameState gameState = GameState.NOT_READY;
     private String lastPausePlayer;
     private final AtomicInteger curPlayerCount = new AtomicInteger(0);
 
@@ -38,7 +38,7 @@ public abstract class BasePokerTable implements PokerTable {
 
     @Override
     public void licensing() {
-
+        pokerPack.disorganize();
     }
 
     @Override
@@ -46,8 +46,17 @@ public abstract class BasePokerTable implements PokerTable {
         if (curPlayerCount.get() < players.length) {
             return;
         }
-        this.gameState = GameState.start(this.gameState, players);
-        //TODO do something
+        for (Player player : players) {
+            if (GameState.READY != player.gameState()) {
+                this.gameState = GameState.READY_START;
+            }
+        }
+        this.gameState = GameState.start(this.gameState);
+        if (GameState.READY_START == this.gameState) {
+            //TODO do start
+        } else {
+            //TODO can't start,do something
+        }
     }
 
     @Override
@@ -102,5 +111,9 @@ public abstract class BasePokerTable implements PokerTable {
 
     public Poker deal() {
         return pokerPack.deal();
+    }
+
+    public Poker[] deal(int pokerNum) {
+        return pokerPack.deal(pokerNum);
     }
 }

@@ -26,6 +26,8 @@ public interface Player {
 
     void addHand(Poker poker);
 
+    void addHand(Poker[] pokers);
+
     void organizeHands(Poker[] hands);
 
     PokerGroup play(Poker[] selectedPokers);

@@ -39,14 +39,9 @@ public enum GameState {
         return gameState;
     }
 
-    public static GameState start(GameState gameState, Player[] players) {
-        for (Player player : players) {
-            if (READY != player.gameState()) {
-                return NOT_READY;
-            }
-        }
-        if (GameState.NOT_READY == gameState) {
-            return READY_START;
+    public static GameState start(GameState gameState) {
+        if (GameState.READY_START == gameState) {
+            return IN_PROGRESS;
         }
         return NOT_READY;
     }

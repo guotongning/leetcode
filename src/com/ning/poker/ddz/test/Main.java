@@ -2,12 +2,30 @@ package com.ning.poker.ddz.test;
 
 import com.ning.poker.base.api.Poker;
 import com.ning.poker.base.api.PokerGroup;
+import com.ning.poker.ddz.DDZPlayer;
 import com.ning.poker.ddz.DDZPokerGroupFactory;
+import com.ning.poker.ddz.DZZPokerTable;
 
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
+//        test1();
+        DZZPokerTable table = new DZZPokerTable();
+        DDZPlayer rtz1 = new DDZPlayer("rtz1");
+        DDZPlayer rtz2 = new DDZPlayer("rtz2");
+        DDZPlayer rtz3 = new DDZPlayer("rtz3");
+        table.joinPlayer(rtz1);
+        table.joinPlayer(rtz2);
+        table.joinPlayer(rtz3);
+        rtz1.ready();
+        rtz2.ready();
+        rtz3.ready();
+        table.licensing();
+        System.out.println();
+    }
+
+    private static void test1() {
         PokerGroup group1 = DDZPokerGroupFactory.getInstance().create("BJ", "SJ");
         PokerGroup group2 = DDZPokerGroupFactory.getInstance().create("2", "2", "2", "2");
         compare(group1, group2);
@@ -46,7 +64,7 @@ public class Main {
         compare(group14, group15);
 
         PokerGroup group16 = DDZPokerGroupFactory.getInstance().create("7", "3", "8", "6", "6", "6", "5", "5", "5", "4", "4", "4");
-        PokerGroup group17 = DDZPokerGroupFactory.getInstance().create("K", "7", "5", "5", "5", "3", "3", "3", "4", "4", "4", "8");
+        PokerGroup group17 = DDZPokerGroupFactory.getInstance().create("BJ", "7", "5", "5", "5", "3", "3", "3", "4", "4", "4", "8");
         compare(group16, group17);
     }
 

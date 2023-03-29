@@ -11,8 +11,8 @@ import com.ning.poker.base.utils.PokerUtils;
 public abstract class BasePlayer implements Player {
 
     private final String name;
-    private PlayerState playerState;
-    private GameState gameState;
+    private PlayerState playerState = PlayerState.FREE;
+    private GameState gameState = GameState.UN_READY;
     private String curTableID;
 
     public BasePlayer(String name) {

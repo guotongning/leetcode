@@ -19,6 +19,16 @@ public class DDZPlayer extends BasePlayer {
     @Override
     public void addHand(Poker poker) {
         pokers[handsCount.getAndIncrement()] = poker;
+        if (handsCount.get() == 17) {
+            PokerUtils.sort(pokers, true);
+        }
+    }
+
+    @Override
+    public void addHand(Poker[] pokers) {
+        for (Poker poker : pokers) {
+            addHand(poker);
+        }
     }
 
     @Override
@@ -53,6 +63,7 @@ public class DDZPlayer extends BasePlayer {
             }
             handsCount.set(handsCount.get() - selectedPokers.length);
         }
+        PokerUtils.sort(pokers, true);
         return pokerGroup;
     }
 
