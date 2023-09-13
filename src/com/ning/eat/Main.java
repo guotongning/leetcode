@@ -1,45 +1,45 @@
 package com.ning.eat;
 
-import java.util.function.Function;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
+    //随机次数
+    private final static int RANDOM_FACTOR = 100;
+    //食物列表
+    public static List<String> foods() {
+        return Arrays.asList(
+                "魏家凉皮",
+                "海盗虾饭",
+                "和合谷",
+                "小恒水饺",
+                "南城香",
+                "阿香米线",
+                "田老师",
+                "胡辣汤",
+                "驴肉火烧",
+                "赛百味"
+        );
+    }
 
     public static void main(String[] args) {
-        //求字符串长度，处理逻辑：String类的length方法。
-        Integer length = handle("success", String::length);
-        System.out.println(length);
-        //将字符串转成数字，处理逻辑：Integer类的parseInt方法。
-        Integer result = handle("123", Integer::parseInt);
-        System.out.println(result);
-        //累加字符串中每个字母对应的ASCII码值
-        Integer ascSum = handle("abc", Main::add);
-        System.out.println(ascSum);
-    }
-
-    /**
-     * 将一个字符串处理成一个数字的方法
-     *
-     * @param string   需要处理的字符串
-     * @param function 处理这个字符串的具体逻辑
-     * @return 处理结果
-     */
-    public static Integer handle(String string, Function<String, Integer> function) {
-        //调用处理字符串的方法，将需要处理的字符串传入。
-        return function.apply(string);
-    }
-
-    /**
-     * 自定义的处理逻辑：累加字符串中每个字母对应的ASCII码值
-     *
-     * @param string 需要处理的字符串
-     * @return ASCII码值之和
-     */
-    public static int add(String string) {
-        int result = 0;
-        for (char c : string.toCharArray()) {
-            result += c;
+        //待选食物列表
+        List<String> foods = foods();
+        //随机结果收集
+        List<String> res = new ArrayList<>();
+        //随机
+        for (int i = 0; i < RANDOM_FACTOR; i++) {
+            int foodIndex = new Random().nextInt(foods.size() - 1);
+            res.add(foods.get(foodIndex));
         }
-        return result;
+        //分组
+        Map<String, List<String>> resMap = res.stream().collect(Collectors.groupingBy(k -> k, Collectors.toList()));
+        //统计
+        Map<String, Integer> countMap = resMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getValue().size()));
+        //排序
+        String food = countMap.entrySet().stream().max(Comparator.comparingInt(Map.Entry::getValue)).orElseThrow(() -> new RuntimeException("啊啊啊，我死了。")).getKey();
+        //结果
+        System.out.println("今天吃：" + food);
     }
 
 }

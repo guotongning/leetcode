@@ -1,6 +1,5 @@
 package com.ning.poker.ddz.test;
 
-import com.ning.poker.base.api.Poker;
 import com.ning.poker.base.api.PokerGroup;
 import com.ning.poker.ddz.DDZPlayer;
 import com.ning.poker.ddz.DDZPokerGroupFactory;
@@ -11,6 +10,10 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 //        test1();
+        test2();
+    }
+
+    private static void test2() {
         DZZPokerTable table = new DZZPokerTable();
         DDZPlayer rtz1 = new DDZPlayer("rtz1");
         DDZPlayer rtz2 = new DDZPlayer("rtz2");

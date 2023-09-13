@@ -5,7 +5,7 @@ public class ShareActionsCreator extends SqlCreator {
 
     public static void main(String[] args) {
         ShareActionsCreator creator = new ShareActionsCreator();
-        creator.createSqlByDtRange("20230211", "20230331");
+        creator.createSqlByDtRange("20230601", "20230831");
     }
 
     @Override

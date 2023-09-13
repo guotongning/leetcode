@@ -4,7 +4,7 @@ package com.ning.table_sql;
 public class PartnerGrowthValueCreator extends SqlCreator{
 
     public static void main(String[] args) {
-        new PartnerGrowthValueCreator().printSqlByLength(90);
+        new PartnerGrowthValueCreator().createSqlByDtRange("20230507","20230831");
     }
 
     @Override
